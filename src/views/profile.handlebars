@@ -1,0 +1,20 @@
+<main class="d-flex flex-column align-items-center w-100 flex-grow-1">
+    <h1 class="bg-success-subtle p-2 text-center text-success w-100">USER PROFILE</h1>
+    <section class="m-3 d-flex flex-column justify-content-evenly flex-wrap align-items-center border rounded p-4"
+        style="width: 380px;">
+        {{#if user.avatar}}
+        <img src="{{user.avatar}}" alt="Profile Picture" class="rounded-circle mb-3"
+            style="width: 120px; height: 120px; object-fit: cover;">
+        {{/if}}
+        {{#if user.name}}
+        <p class="m-2 p-2 w-100 text-center"><strong>Name:</strong> {{user.name}} </p>
+        {{/if}}
+        {{#if formatted}}
+        <p class="m-2 p-2 w-100 text-center"><strong>Date:</strong> {{formatted}} </p>
+        {{/if}}
+        <p class="m-2 p-2 w-100 text-center"><strong>City:</strong> {{user.city}}</p>
+        <p class="m-2 p-2 w-100 text-center"><strong>Email:</strong> {{user.email}}</p>
+        <p class="m-2 p-2 w-100 text-center"><strong>Role:</strong> {{user.role}}</p>
+        <a href="/update-user" class="btn btn-success m-2 w-100">UPDATE</a>
+    </section>
+</main>
