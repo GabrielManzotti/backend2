@@ -1,0 +1,19 @@
+<div id="opts"></div>
+<h1 class="bg-success-subtle p-2 text-center text-success w-100">SELECT THE PRODUCT TO UPDATE</h1>
+<section class="container d-flex justify-content-center">
+    <div class="w-100" style="max-width: 60%;">
+        <ul class="list-group">
+            {{#each products}}
+            <li class="list-group-item d-flex align-items-center">
+                <img src="{{this.image}}" alt="{{this._id}}" class="me-3"
+                    style="width: 100px; height: auto; object-fit: cover;">
+                <div class="flex-grow-1">
+                    <h5 class="mb-1">{{this.title}}</h5>
+                </div>
+                <a href="/updateProduct/{{this._id}}" class="btn btn-success">Update</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+<script src="/scripts/selectProductUpdate.js"></script>

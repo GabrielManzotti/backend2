@@ -67,6 +67,27 @@ const adminPanel = async (req, res) => {
   }
 };
 
+const selectProductUpdate = async (req, res) => {
+  try {
+    const products = await productsManager.readAll();
+    res.status(200).render("select-update-product", { products });
+  } catch (error) {
+    res.status(error.statusCode || 500).render("error", { error });
+  }
+};
+
+const updateProduct = async (req, res) => {
+  try {
+    const { pid } = req.params;
+    const product = await productsManager.readById(pid);
+    console.log(product);
+
+    res.status(200).render("update-product", { product });
+  } catch (error) {
+    res.status(error.statusCode || 500).render("error", { error });
+  }
+};
+
 viewsRouter.get("/", indexView);
 viewsRouter.get("/details/:pid", detailView);
 viewsRouter.get("/register", registerView);
@@ -74,5 +95,7 @@ viewsRouter.get("/login/", loginView);
 viewsRouter.get("/profile/", passport.authenticate("user", { session: false }), profileView);
 viewsRouter.get("/adminPanel/", passport.authenticate("admin", { session: false }), adminPanel);
 viewsRouter.get("/update-user", updateUserView);
+viewsRouter.get("/selectproductupdate", selectProductUpdate);
+viewsRouter.get("/updateProduct/:pid", updateProduct);
 
 export default viewsRouter;

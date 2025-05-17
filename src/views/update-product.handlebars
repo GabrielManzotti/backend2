@@ -1,0 +1,42 @@
+<main class="d-flex flex-column align-items-center w-200 flex-grow-1">
+    <h1 class="bg-success-subtle p-2 text-center text-success w-100">UPDATE PRODUCT</h1>
+    <form class="m-3 d-flex flex-column justify-content-evenly flex-wrap align-items-center" style="width: 380px;">
+        <input class="m-2 p-2 text-center w-100" type="text" name="pid" id="pid" value={{product._id}} />
+        <input class="m-2 p-2 text-center w-100" type="text" name="name" id="name" value="{{product.title}}" />
+        <input class="m-2 p-2 text-center w-100" type="text" name="description" id="description" value=""
+            placeholder="description" />
+        <select class="form-select m-2 p-2 text-center w-100 border border-1 border-dark" name="category" id="category"
+            required>
+            <option selected disabled value="">Select category</option>
+            <option>Accessories</option>
+            <option>Cameras</option>
+            <option>Desktops</option>
+            <option>Fitness</option>
+            <option>Gaming</option>
+            <option>Headphones</option>
+            <option>Keyboards</option>
+            <option>Laptops</option>
+            <option>Smartphones</option>
+            <option>Smartwatches</option>
+            <option>Soundbars</option>
+            <option>Speakers</option>
+            <option>Streaming Devices</option>
+            <option>Tablets</option>
+            <option>Televisions</option>
+            <option>Virtual Reality</option>
+        </select>
+        <input class="m-2 p-2 text-center w-100" type="text" name="image" id="image" placeholder="url image" />
+        <input class="m-2 p-2 text-center w-100" type="number" name="price" id="price" placeholder="price" />
+        <input class="m-2 p-2 text-center w-100 " type="number" name="stock" id="stock" placeholder="stock" />
+        <select class="form-select m-2 p-2 text-center w-100 border border-1 border-dark" name="onsale" id="onsale"
+            required>
+            <option selected disabled value="">on sale</option>
+            <option>true</option>
+            <option>false</option>
+        </select>
+        <input class="m-2 p-2 text-center w-100" type="text" name="owner_id" id="owner_id" value={{product.owner_id}} />
+        <input class="m-2 p-2 text-center btn btn-success w-100" type="button" id="userUpdate" value="UPDATE!" />
+    </form>
+    <p id="errorSuccess" class=" text-success text-center w-100"></p>
+</main>
+<script src="/scripts/updateProduct.js"></script>
